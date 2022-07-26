@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        
+.flex-container {
+  border-radius: 10px;
+  padding: 10px 2px;
+
+  margin-bottom: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: DodgerBlue;
+  justify-content: space-evenly;
+
+}
+
+.flex-container > div {
+  border-radius: 10px;
+  background-color: #f1f1f1;
+  width: 100px;
+  margin: 5px 11px;
+  text-align: center;
+  flex-direction: column;
+  display: flex;
+  justify-content: space-evenly;
+
+}
+.coin{
+    margin-top: 2px;
+    text-align: center;
+    font-size: 20px;
+    padding-top: 10px;
+    font-family: cursive;
+}
+img{
+    width: 18px;
+    height: 18px;
+    justify-content: center;
+}
+.price{
+    padding-bottom: 10px;
+
+    text-align: center;
+    font-family: monospace;
+
+    font-size: 12px;
+    
+}
+p {
+    margin: 0px !important;
+}
+    </style>
+</head>
+<%- include('header'); -%>
+<body>
+    <div class="container">
+    
+    <div class="lol">
+    <div class="flex-container ">
+        <% for(var i = 0; i < coin.length; i++) { %>
+        <div><p class="coin"><%- coin[i]["sy"] %></p> <p><img src="https://s2.coinmarketcap.com/static/img/coins/64x64/<%- coin[i]["id"] %>.png"></p> <p class="price"><%- coin[i]["price"] %></p></div> 
+        <% } %>
+      
+    </div>
+    </div>
+    </div>
+</body>
+</body>
+</html>
