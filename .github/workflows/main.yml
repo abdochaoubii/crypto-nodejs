@@ -1,11 +1,28 @@
-on: push
+name: CI
+
+on:
+  push:
+    branches:
+      - 'master'
+    paths:
+      - 'src/**/*'
+      - 'test/**/*'
+
 jobs:
-  build-node:
+  ci:
+
     runs-on: ubuntu-latest
-    container: node:16
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
     steps:
-        run: node --version
-        - run: npm --version
-        uses: actions/checkout@v3
-        - run: npm install
-        - run: npm start
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: |
+        npm install 
+        npm run ci
